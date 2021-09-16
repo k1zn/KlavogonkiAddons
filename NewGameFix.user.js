@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    document.addEventListener('keydown', (e) => {
+    document.body.addEventListener('keydown', (e) => {
         if (e.ctrlKey) {
             let keyCode = e.keyCode || e.which;
             let gameId = new URLSearchParams(window.location.search).get('gmid')
