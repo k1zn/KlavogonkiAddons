@@ -12,10 +12,9 @@
     'use strict';
 
     document.body.addEventListener('keydown', (e) => {
-        if (e.ctrlKey) {
-            let keyCode = e.keyCode || e.which;
+        if (e.key === 'ArrowRight' && e.ctrlKey === true) {
             let gameId = new URLSearchParams(window.location.search).get('gmid')
-            if (keyCode === 0x27 && gameId) location.href = '/g/' + gameId + '.replay';
+            location.href = '/g/' + gameId + '.replay';
         }
     });
 })();
