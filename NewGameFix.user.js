@@ -13,8 +13,13 @@
 
     document.body.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' && e.ctrlKey === true) {
-            let gameId = new URLSearchParams(window.location.search).get('gmid')
-            location.href = '/g/' + gameId + '.replay';
+            let item = localStorage.getItem("recent_games");
+            let parsed = JSON.parse(item);
+            if (parsed && parsed.length > 0) {
+                let lastGame = parsed[0]?.params || console.error("There is no params in last game!");
+                http://klavogonki.ru/create/?gametype=voc&voc=62238&type=practice&level_from=1&level_to=9&timeout=5&submit=1
+                location.href = location.protocol + `//klavogonki.ru/create/?gametype=${lastGame.gametype}&voc=${lastGame.vocId}&type=${lastGame.type}&level_from=${lastGame.level_from}&level_to=${lastGame.level_to}&timeout=${lastGame.timeout}&submit=1&premium_abra=${lastGame.premium_abra}&qual={lastGame.qual}`
+            }
         }
     });
 })();
