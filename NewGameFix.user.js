@@ -21,8 +21,8 @@
 
                 location.href = location.protocol + `//klavogonki.ru/create/?${new URLSearchParams(lastGame).toString() || "error=1"}&submit=1`
             }
-        } else {
-            e.keyCode = 0x90; prevEventListener(e);
+        } else if (e.keyCode != 0x25 && e.which != 0x25) {
+            prevEventListener(e);
         }
     };
 })();
