@@ -18,7 +18,7 @@
             if (parsed && parsed.length > 0) {
                 let lastGame = parsed[0]?.params || console.error("There is no params in last game!");
 
-                location.href = location.protocol + `//klavogonki.ru/create/?gametype=${lastGame.gametype}&voc=${lastGame.vocId}&type=${lastGame.type}&level_from=${lastGame.level_from}&level_to=${lastGame.level_to}&timeout=${lastGame.timeout}&submit=1&premium_abra=${lastGame.premium_abra}&qual={lastGame.qual}`
+                location.href = location.protocol + `//klavogonki.ru/create/?${new URLSearchParams(lastGame).toString() || "error=1"}&submit=1`
             }
         }
     });
