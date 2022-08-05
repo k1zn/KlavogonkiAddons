@@ -11,9 +11,9 @@
 (function() {
     'use strict';
 
-    let prevEventListener = document.onkeydown || function() {};
+    const prevEventListener = document.onkeydown || function() {};
     document.onkeydown = (e) => {
-        if (e.key === 'ArrowRight' && e.ctrlKey === true) {
+        if (e.key === "ArrowRight" && e.ctrlKey) {
             let item = localStorage.getItem("recent_games");
             let parsed = JSON.parse(item);
             if (parsed && parsed.length > 0) {
@@ -21,7 +21,7 @@
 
                 location.href = location.protocol + `//klavogonki.ru/create/?${new URLSearchParams(lastGame).toString() || "error=1"}&submit=1`
             }
-        } else if (e.keyCode != 0x25 && e.which != 0x25) {
+        } else if (e.key !== "ArrowRight" && !e.ctrlKey) {
             prevEventListener(e);
         }
     };
