@@ -19,7 +19,7 @@
             if (parsed && parsed.length > 0) {
                 let lastGame = parsed[0]?.params || console.error("There is no params in last game!");
 
-                location.href = location.protocol + `//klavogonki.ru/create/?${new URLSearchParams(lastGame).toString() || "error=1"}&submit=1`
+                location.href = location.protocol + `//klavogonki.ru/create/?${new URLSearchParams(lastGame)?.toString()?.replace("vocId", "voc") || "error=1"}&submit=1`
             }
         } else if (e.key !== "ArrowRight" && !e.ctrlKey) {
             prevEventListener(e);
