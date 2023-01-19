@@ -15,7 +15,6 @@
         e.addEventListener("input", (beb) => {
             if (/<<|>>/.exec(beb.target.innerText)) {
                 beb.target.innerText = beb.target.innerText.replace(/<<|>>/gi, (matched) => matched.includes("<") ? "«" : "»");
-                beb.target.focus();
                 const sel = document.getSelection();
                 if (sel.rangeCount) {
                     ['Start', 'End'].forEach(pos =>
